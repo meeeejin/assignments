@@ -7,9 +7,6 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import train_test_split
 
-#plt.scatter(rgb_pca[:,0], rgb_pca[:,1], marker='o', color='red', alpha=0.1)
-#plt.savefig("test.png", dpi=300)
-
 images = ('city', 'sky', 'sea')
 
 features = []
@@ -19,7 +16,7 @@ for j, image in enumerate(images):
     for k in range(1, 21):
         im = Image.open("images/" + image + "/" + image + str(k) + ".jpg")
         arr = list(im.getdata())
-        
+
         pca = PCA(n_components=2, whiten=True).fit(arr)
         rgb_pca = pca.transform(arr)
 
@@ -36,7 +33,7 @@ for j, image in enumerate(images):
     for k in range(21, 26):
         im = Image.open("images/" + image + "/" + image + str(k) + ".jpg")
         arr = list(im.getdata())
-        
+
         pca = PCA(n_components=2, whiten=True).fit(arr)
         rgb_pca = pca.transform(arr)
 

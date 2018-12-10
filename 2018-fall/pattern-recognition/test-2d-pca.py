@@ -5,11 +5,7 @@ from PIL import Image
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
 
-
 im = Image.open("images/sky/sky2.jpg")
-#im = Image.open("images/city/city24.jpg")
-#im = Image.open("images/sea/sea1.jpg")
-#r, g, b = list(im.getdata(0)), list(im.getdata(1)), list(im.getdata(2))
 
 arr = list(im.getdata())
 pca = PCA(n_components=3, whiten=True).fit(arr)
